@@ -1,0 +1,20 @@
+ul {
+    height: 100%;
+    width: 150px;
+    background-color: rgb(46, 41, 41);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    top: 0px;
+    margin-top: 0px;
+}
+
+li {
+    margin: 20px;
+    list-style-type: none;
+}
+
+li:hover {
+    color: aquamarine;
+}
