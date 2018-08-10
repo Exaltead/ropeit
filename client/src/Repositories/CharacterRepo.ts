@@ -1,4 +1,4 @@
-import { CharacterDto } from "../Models/CharacterDto";
+import { CharacterDto } from "../models/CharacterDto";
 
 
 export async function fetchCharactes(gameId: number) {

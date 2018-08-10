@@ -4,6 +4,7 @@ export class CharacterDto {
     public readonly fluff: string;
     public readonly mechanics: string;
     public readonly notes: string;
+    
     constructor(id: number, name: string,
         fluff: string, mechanics: string, notes: string) {
         this.fluff = fluff;

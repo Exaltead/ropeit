@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CharacterDto } from '../Models/CharacterDto';
+import { CharacterDto } from '../models/CharacterDto';
 import { fetchCharactes } from '../Repositories/CharacterRepo';
 import { Character } from './Character';
 
