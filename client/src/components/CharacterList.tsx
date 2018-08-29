@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { CharacterDto } from '../models/CharacterDto';
-import { fetchCharactes } from '../Repositories/CharacterRepo';
 import { Character } from './Character';
 
 export interface Props {
@@ -13,11 +12,6 @@ interface State {
 }
 
 export class CharacterList extends React.Component<Props, State>{
-    public componentDidMount() {
-        fetchCharactes(1)
-            .then(t => this.setState(
-                (prevState, props) => ({ ...prevState, characters: t })))
-    }
 
     public render() {
         const playerName = this.state.playerName;
