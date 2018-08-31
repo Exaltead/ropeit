@@ -1,16 +1,16 @@
 import * as React from 'react';
 import './MainMenu.css'
-export enum Selection {
+enum Selection {
     Players = "Players",
     Characters = "Characters",
     Notes = "Notes"
 }
 
 export interface Props {
-    onClick: (seletion: Selection) => void;
+    onClick: (selection: Selection) => void;
 }
 
-export function MainMenu(props: Props) {
+const MainMenu = (props: Props) => {
     return (
         <ul>
             <li onClick={() => props.onClick(Selection.Players)} >{Selection.Players}</li>
@@ -19,3 +19,5 @@ export function MainMenu(props: Props) {
         </ul>
     );
 }
+
+export default MainMenu;
