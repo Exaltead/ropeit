@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { CharacterDto } from '../models/CharacterDto';
+import { Character as CharacterModel } from 'src/store/characters/types'
 
 export interface Props {
-    character: CharacterDto;
+    character: CharacterModel;
     playerName: string;
 }
 

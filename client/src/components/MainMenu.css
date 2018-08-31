@@ -1,6 +1,5 @@
 ul {
     height: 100%;
-    width: 150px;
     background-color: rgb(46, 41, 41);
     position: fixed;
     display: flex;
@@ -13,6 +12,7 @@ ul {
 li {
     margin: 20px;
     list-style-type: none;
+    color: antiquewhite
 }
 
 li:hover {
