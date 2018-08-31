@@ -9,19 +9,19 @@ function* rootSaga() {
     yield all([fork(characterSaga)])
 }
 
-interface ApplicationState {
-    characterState: CharacterState
+export interface ApplicationState {
+    characters: CharacterState
 }
 
 const rootReducer = combineReducers<ApplicationState>(
     {
-        characterState: characterReducer
+        characters: characterReducer
     })
 
 
-export function configureStore(initialState: ApplicationState): Store<ApplicationState> {
+export function configureStore(): Store<ApplicationState> {
     const sagaMiddleware = createSagaMiddleware()
-    const store = createStore(rootReducer, initialState,
+    const store = createStore(rootReducer,
         applyMiddleware(sagaMiddleware))
     sagaMiddleware.run(rootSaga)
     return store

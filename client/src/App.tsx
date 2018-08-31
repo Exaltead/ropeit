@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
-import { CharacterList } from "./components/CharacterList";
+import CharacterList from "./components/CharacterList";
 import MainMenu from "./components/MainMenu";
 
 const App = () => {

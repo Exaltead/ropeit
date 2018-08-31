@@ -5,11 +5,12 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App'
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import store from './store';
+import { configureStore } from './store/index';
+
 
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={configureStore()}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
