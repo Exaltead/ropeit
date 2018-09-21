@@ -25,9 +25,17 @@ const rootReducer = combineReducers<ApplicationState>(
 
 
 export function configureStore(): Store<ApplicationState> {
+    const middlewares = Array<any>()
+    if (process.env.NODE_ENV === 'development') {
+        const { logger } = require('redux-logger')
+        middlewares.push(logger)
+    }
+
     const sagaMiddleware = createSagaMiddleware()
+    middlewares.push(sagaMiddleware)
+
     const store = createStore(rootReducer,
-        applyMiddleware(sagaMiddleware))
+        applyMiddleware(...middlewares))
     sagaMiddleware.run(rootSaga)
     return store
 }
