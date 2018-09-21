@@ -2,13 +2,14 @@ import * as React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import './App.css'
 import CharacterList from "./components/CharacterList";
-import MainMenu from "./components/MainMenu";
+
+import SideNav from "./containers/SideNav";
 
 const App = () => {
     return (
         <div>
             <div className='side-nav'>
-                <MainMenu />
+                <SideNav />
             </div>
             <div className='content'>
                 <Switch>
