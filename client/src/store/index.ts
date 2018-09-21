@@ -4,18 +4,23 @@ import { all, fork } from "redux-saga/effects";
 import { characterReducer } from "./characters/reducer";
 import characterSaga from "./characters/sagas";
 import { CharacterState } from "./characters/types";
+import { gameReducer } from "./games/reducers";
+import gameSaga from "./games/sagas";
+import { GameState } from "./games/types";
 
 function* rootSaga() {
-    yield all([fork(characterSaga)])
+    yield all([fork(characterSaga), fork(gameSaga)])
 }
 
 export interface ApplicationState {
-    characters: CharacterState
+    characters: CharacterState;
+    games: GameState
 }
 
 const rootReducer = combineReducers<ApplicationState>(
     {
-        characters: characterReducer
+        characters: characterReducer,
+        games: gameReducer
     })
 
 

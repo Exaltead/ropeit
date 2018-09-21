@@ -1,5 +1,5 @@
 import { Reducer } from "redux"
-import { ActionType, getType } from "typesafe-actions";
+import { ActionType } from "typesafe-actions";
 import * as gameActions from './actions'
 import { Game, GameActionTypes, GameState } from './types'
 const initialState: GameState = {

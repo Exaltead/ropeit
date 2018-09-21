@@ -1,4 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
+import { fetchGames } from 'src/repositories/GameRepo';
 import { fetchGames as fetchAction } from './actions';
 import { GameActionTypes } from './types';
 
