@@ -6,10 +6,13 @@ import { EmptyAction } from 'typesafe-actions/dist/types';
 import { ApplicationState } from '../store';
 import MainMenu from '../components/MainMenu';
 import { connect } from 'react-redux';
+import GamePicker from 'src/components/GamePicker';
+import './SideNav.css'
 
 interface PropsFromState {
     loading: boolean
     games: GameModel[]
+    selectedGame?: number
 }
 
 interface PropsFromDispatch {
@@ -24,8 +27,13 @@ class SideNav extends React.Component<Props>{
     }
     public render() {
         return (
-            <div>
-                <MainMenu />
+            <div className="container">
+                <div className="picker">
+                    <GamePicker selected={this.props.selectedGame} games={this.props.games} />
+                </div>
+                <div className="links">
+                    <MainMenu />
+                </div>
             </div>)
     }
 }
@@ -36,7 +44,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 
 const mapStateToProps = ({ games }: ApplicationState) => ({
     loading: games.loading,
-    games: Array.from(games.gamesById.values())
+    games: Array.from(games.gamesById.values()),
+    selectedGame: games.selectedGame
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideNav)

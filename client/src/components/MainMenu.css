@@ -1,16 +1,14 @@
 ul {
-    height: 100%;
-    background-color: rgb(46, 41, 41);
-    position: fixed;
     display: flex;
     flex-direction: column;
     align-content: flex-start;
     top: 0px;
-    margin-top: 0px;
+    margin: 0rem;
 }
 
 li {
     margin: 20px;
+    margin-left: 0rem;
     list-style-type: none;
     color: antiquewhite
 }
