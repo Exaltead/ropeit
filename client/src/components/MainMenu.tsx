@@ -1,21 +1,29 @@
 import * as React from 'react';
-import './MainMenu.css'
-export enum Selection {
-    Players = "Players",
-    Characters = "Characters",
-    Notes = "Notes"
-}
+import { Link } from 'react-router-dom';
+// import './MainMenu.css'
+import styled from 'styled-components';
 
-export interface Props {
-    onClick: (seletion: Selection) => void;
-}
+const StyledUl = styled.ul`
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+`
 
-export function MainMenu(props: Props) {
+const StyledLi = styled.li`
+    margin: 20px;
+    margin-left: 0rem;
+    list-style-type: none;
+    color: antiquewhite
+`
+
+const MainMenu = () => {
     return (
-        <ul>
-            <li onClick={() => props.onClick(Selection.Players)} >{Selection.Players}</li>
-            <li onClick={() => props.onClick(Selection.Characters)} >{Selection.Characters}</li>
-            <li onClick={() => props.onClick(Selection.Notes)} >{Selection.Notes}</li>
-        </ul>
+        <StyledUl>
+            <StyledLi><Link to='/players'> Players </Link> </StyledLi>
+            <StyledLi><Link to='/characters'> Characters </Link></StyledLi>
+            <StyledLi><Link to='/notes'> Notes </Link></StyledLi>
+        </StyledUl>
     );
 }
+
+export default MainMenu;
