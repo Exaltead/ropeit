@@ -7,7 +7,15 @@ import { ApplicationState } from '../store';
 import MainMenu from '../components/MainMenu';
 import { connect } from 'react-redux';
 import GamePicker from 'src/components/GamePicker';
-import './SideNav.css'
+import styled from 'styled-components';
+
+const ContainerDiv = styled.div`
+    background-color: rgb(46, 41, 41);
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    height: inherit;
+`
 
 interface PropsFromState {
     loading: boolean
@@ -28,15 +36,14 @@ class SideNav extends React.Component<Props>{
     }
     public render() {
         return (
-            <div className="container">
+            <ContainerDiv>
                 <div className="picker">
                     <GamePicker selected={this.props.selectedGame} games={this.props.games}
-                    onSelected={this.props.select} />
+                        onSelected={this.props.select} />
                 </div>
-                <div className="links">
-                    <MainMenu />
-                </div>
-            </div>)
+                <MainMenu />
+
+            </ContainerDiv>)
     }
 }
 
