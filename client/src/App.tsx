@@ -4,7 +4,7 @@ import './App.css'
 import CharacterList from "./components/CharacterList";
 
 import SideNav from "./containers/SideNav";
-import CharacterView from "./components/CharacterDetalisRead";
+import CharacterDetails from "./containers/CharacterDetails"
 
 const App = () => {
     return (
@@ -16,7 +16,7 @@ const App = () => {
                 <Switch>
                     <Redirect exact={true} from="/" to="/characters" />
                     <Route exact={true} path="/characters" component={CharacterList} />
-                    <Route path="/characters/:characterId" component={CharacterView} />
+                    <Route path="/characters/:characterId" component={CharacterDetails} />
                     <Route path="/players" component={() => <div>Not done</div>} />
                     <Route path="/notes" component={() => <div>Not done</div>} />
                     <Route component={() => (<div>404 Not found</div>)} />
