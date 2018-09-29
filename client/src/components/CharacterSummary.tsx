@@ -4,12 +4,13 @@ import { Character as CharacterModel } from 'src/store/characters/types'
 export interface Props {
     character: CharacterModel;
     playerName: string;
+    onClick: () => void;
 }
 
-export function Character(props: Props) {
+export function CharacterSummary(props: Props) {
     const character = props.character;
     return (
-        <div>
+        <div onClick={props.onClick}>
             <text>Player: {props.playerName}</text>
             <text>Character: {character.name}</text>
             <text>Mechanics: {character.mechanics}</text>
