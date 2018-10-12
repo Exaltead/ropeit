@@ -6,13 +6,19 @@ import { Character as CharacterModel } from 'src/store/characters/types';
 import { ApplicationState } from 'src/store/index'
 import { CharacterSummary as CharacterView } from './CharacterSummary';
 import { withRouter, RouteComponentProps } from 'react-router';
+import styled from 'styled-components';
 
+
+const CharactersContainer = styled.div`
+    display: flex;
+    flex-flow: row wrap;
+`
 
 interface PropsFromState {
     loading: boolean
     characters: CharacterModel[]
     playerName: string
-    gameId: number
+    gameId?: number
 }
 
 interface PropsFromDispatch {
@@ -43,15 +49,15 @@ class CharacterList extends React.Component<Props>{
                     playerName={playerName}
                     onClick={() => openDetails(t.id)} />));
         return (
-            <div>
+            <CharactersContainer>
                 {characters}
-            </div>);
+            </CharactersContainer>);
     }
 }
 
-const mapStateToProps = ({ characters }: ApplicationState) => ({
+const mapStateToProps = ({ characters, games: { selectedGame } }: ApplicationState) => ({
     characters: Array.from(characters.charactersById.values()),
-    gameId: 1,
+    gameId: selectedGame,
     loading: characters.loading,
     playerName: "Hehe"
 })
