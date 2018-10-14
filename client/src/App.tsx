@@ -1,18 +1,31 @@
 import * as React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import './App.css'
 import CharacterList from "./components/CharacterList";
 
 import SideNav from "./containers/SideNav";
 import CharacterDetails from "./containers/CharacterDetails"
+import styled from "styled-components";
+
+
+const NavSlot = styled.div`
+    position: absolute;
+    height: 100%;
+    width: 150px;
+`
+
+const ContentSlot = styled.div`
+    position: absolute;
+    top: 0px;
+    margin-left: 160px
+`
 
 const App = () => {
     return (
         <div>
-            <div className='side-nav'>
+            <NavSlot>
                 <SideNav />
-            </div>
-            <div className='content'>
+            </NavSlot>
+            <ContentSlot>
                 <Switch>
                     <Redirect exact={true} from="/" to="/characters" />
                     <Route exact={true} path="/characters" component={CharacterList} />
@@ -21,7 +34,7 @@ const App = () => {
                     <Route path="/notes" component={() => <div>Not done</div>} />
                     <Route component={() => (<div>404 Not found</div>)} />
                 </Switch>
-            </div >
+            </ContentSlot >
         </div>)
 }
 
