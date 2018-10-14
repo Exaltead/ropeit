@@ -6,6 +6,14 @@ import SideNav from "./containers/SideNav";
 import CharacterDetails from "./containers/CharacterDetails"
 import styled from "styled-components";
 
+const FlexContainer = styled.div`
+    display:flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+`
 
 const NavSlot = styled.div`
     position: absolute;
@@ -14,14 +22,15 @@ const NavSlot = styled.div`
 `
 
 const ContentSlot = styled.div`
-    position: absolute;
-    top: 0px;
-    margin-left: 160px
+    height:100%;
+    margin-left: 160px;
+    flex-grow: 1;
+    allgn-self: flex-end
 `
 
 const App = () => {
     return (
-        <div>
+        <FlexContainer>
             <NavSlot>
                 <SideNav />
             </NavSlot>
@@ -35,7 +44,7 @@ const App = () => {
                     <Route component={() => (<div>404 Not found</div>)} />
                 </Switch>
             </ContentSlot >
-        </div>)
+        </FlexContainer>)
 }
 
 export default App;
